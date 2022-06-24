@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css" type="text/css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="icon" type="image/x-icon" href="./img/favicon.png" type="text/css">
+    <title>Calculator</title>
+</head>
+<body>
+    <section class="main">
+        <div class="calculator">
+            <div class="calc__display">
+                <input type="text" disabled value='0' id="display" class="calc_display-input" placeholder="00000000000000">
+            </div>
+            <div class="calc__buttons">
+                <button class="calc-button clearBtns" id="ce">ce</button>
+                <button class="calc-button clearBtns" id="c">c</button>
+                <button class="calc-button operation" value="/&nbsp &nbsp division">/</button>
+                <button class="calc-button operation" value="*&nbsp &nbsp  multiplication">*</button>
+                <button class="calc-button number">7</button>
+                <button class="calc-button number">8</button>
+                <button class="calc-button number">9</button>
+                <button class="calc-button operation" value="-&nbsp &nbsp subtraction">-</button>
+                <button class="calc-button number">4</button>
+                <button class="calc-button number">5</button>
+                <button class="calc-button number">6</button>
+                <button class="calc-button calc-plus operation" value="+&nbsp &nbsp addition">+</button>
+                <button class="calc-button number">1</button>
+                <button class="calc-button number">2</button>
+                <button class="calc-button number">3</button>
+                <button class="calc-button" id="decimal">.</button>
+                <button class="calc-button number calc-zero">0</button>
+                <button class="calc-button operation" id="result" value="=&nbsp &nbsp result">=</button>
+            </div>
+        </div>
+        <div class="how-it-works">
+            <h1>The simple calculator.</h1>
+            <button id="howItWorksBtn" class="how-it-works-btn">
+                How it works?
+            </button>
+            <div>
+                <ul id="operationsList" class="oper-list">
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="footer">        
+    </section>
+<script src="./main.js"></script>
+</body>
+</html>

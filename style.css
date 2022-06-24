@@ -1,0 +1,140 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: digital-7;
+    src: url('./fonts/digital-7.ttf');
+    font-style: normal;
+    font-weight: normal;
+}
+
+body {
+    background: black url(./img/background-low-size.jpg) no-repeat ;
+    background-size: cover;
+    background-position: center center;
+}
+.main {
+    display: flex;
+    max-width: 1280px;
+    margin: 0 auto;
+    justify-content: space-evenly;
+}
+.footer {
+    height: 100px;
+}
+.calculator {
+    width: 500px;
+    height: 550px;
+    background-color: hsl(84, 14%, 93%);
+    margin: 50px 0 0 100px; 
+    padding: 50px 0;
+    border-radius: 30px;
+}
+.calc__display {
+    display: flex;
+    margin: 0 30px 0;
+    height: 100px;
+    background-color: black;
+    border-radius: 15px;
+}
+.calc_display-input {    
+    font-family: digital-7;
+    font-size: 60px;
+    margin: auto;
+    padding-right: 4px;
+    height: 80px;
+    width: 420px;
+    text-align: end;
+    background-color: black;
+    outline: none;
+    border: none;
+    caret-color: transparent;
+    letter-spacing: 1px;
+    color: white;
+}
+.calc_display-input::placeholder {
+    color: white;
+    /* opacity: 0.085; */
+}
+.calc__buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 50px 30px;
+    text-align: center;
+    gap: 30px;
+}
+.calc-button {
+    box-shadow: 2px 2px 2px rgba(0,0,0,.5);
+    background-color: rgb(196, 204, 204);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    border: none;
+    text-transform: uppercase;
+    font-size: 36px;
+}
+.calc-plus {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 5;
+    height: 108px;
+}
+.calc-zero {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 5;
+    grid-row-end: 5;
+}
+.calc-button:hover{
+    filter:brightness(110%);
+}
+.calc-button:active{
+    box-shadow: 1px 1px rgba(0,0,0,.5);
+}
+
+
+/* How it works */
+
+.how-it-works {
+    padding: 50px 10px 0 50px;
+}
+.how-it-works h1{
+    color:white;
+    font-size: 52px;
+}
+.how-it-works-btn {
+    margin: 50px 0 0 0;
+    padding: 15px 25px;
+    width: 200px;
+    border-radius: 30px;
+    border: none;
+    font-size: 20px;
+    background-color: white;
+    cursor: pointer;
+}
+.how-it-works-btn:hover {
+    filter:brightness(80%)
+}
+.how-it-works-btn:active {
+    filter: brightness(90%);
+}
+
+.oper-list li {
+    font-size: 20px;
+    padding: 15px 25px;
+    background-color: white;
+    max-width: 200px;
+}
+.oper-list li:first-child {
+    margin: 50px 0 0 0;
+    border-radius: 30px 30px 0 0;
+}
+.oper-list li:last-child {
+    border-radius: 0 0 30px 30px;
+}
