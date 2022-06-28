@@ -25,7 +25,7 @@ body {
     height: 100px;
 }
 .calculator {
-    width: 500px;
+    max-width: 500px;
     height: 550px;
     background-color: hsl(84, 14%, 93%);
     margin: 50px 0 0 100px; 
@@ -35,6 +35,7 @@ body {
 .calc__display {
     display: flex;
     margin: 0 30px 0;
+    max-width: 420px;
     height: 100px;
     background-color: black;
     border-radius: 15px;
@@ -45,7 +46,7 @@ body {
     margin: auto;
     padding-right: 4px;
     height: 80px;
-    width: 420px;
+    width: 100%;
     text-align: end;
     background-color: black;
     outline: none;
@@ -93,9 +94,11 @@ body {
 }
 .calc-button:hover{
     filter:brightness(110%);
+    transition: ease 0.3s;
 }
 .calc-button:active{
     box-shadow: 1px 1px rgba(0,0,0,.5);
+    transition: none;
 }
 
 
@@ -111,7 +114,7 @@ body {
 .how-it-works-btn {
     margin: 50px 0 0 0;
     padding: 15px 25px;
-    width: 200px;
+    width: 220px;
     border-radius: 30px;
     border: none;
     font-size: 20px;
@@ -119,22 +122,71 @@ body {
     cursor: pointer;
 }
 .how-it-works-btn:hover {
-    filter:brightness(80%)
+    filter:brightness(80%);
+    transition: ease 0.3s;
 }
 .how-it-works-btn:active {
     filter: brightness(90%);
+    transition: none;
 }
-
+ul.oper-list {
+    margin-top: 50px;
+    background-color: white;
+    max-width: 220px;
+    border-radius: 30px;
+}
 .oper-list li {
     font-size: 20px;
     padding: 15px 25px;
-    background-color: white;
-    max-width: 200px;
 }
 .oper-list li:first-child {
-    margin: 50px 0 0 0;
     border-radius: 30px 30px 0 0;
 }
 .oper-list li:last-child {
     border-radius: 0 0 30px 30px;
 }
+
+
+
+/* Media queries */
+
+@media (max-width: 992px) {
+    .main {
+        flex-direction: column;
+    }
+    .calculator {
+        margin:  50px auto 0;
+    }
+    .how-it-works {
+        margin: 0 auto;
+        padding: 50px 0 0;
+        text-align: center;
+        height: 460px;
+    }
+    ul.oper-list {
+        text-align: left;
+        margin: 50px auto 0;
+    }
+}
+@media (max-width: 768px) {
+    .calculator {
+        width: 400px;
+        height: 510px;
+    }
+    .calc__buttons {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 440px) {
+    .calculator {
+        width: 310px;
+        padding-top: 30px;
+    }
+    .calc__display{
+        margin: 0 15px 0;
+    }
+    .calc__buttons {
+        margin: 60px 15px 0;
+    }
+}    

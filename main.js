@@ -19,10 +19,12 @@ for (var i = 0; i < numbers.length; i++) {
 };
 for (var i = 0; i < operations.length; i++) {
     var operationBtn = operations[i];
+    howItWorks(operations[i].value);
     operationBtn.addEventListener('click', function(e){
         operation(e.target.textContent);
     });
 };
+
 for (var i = 0; i < clearBtns.length; i++) {
     var clearBtn = clearBtns[i];
     clearBtn.addEventListener('click', function(e){
@@ -30,10 +32,7 @@ for (var i = 0; i < clearBtns.length; i++) {
     });
 };
 decimalBtn.addEventListener('click', decimal);
-howItWorksBtn.addEventListener('click', howItWorks);
-
-
-
+howItWorksBtn.addEventListener('click', viewHowItWorks);
 function numberPress(number) {
     if (MemoryNewNumber) {
         display.value = number;
@@ -48,7 +47,6 @@ function numberPress(number) {
         }
     }
 };
-
 function operation(op) {
     var localOperationMemory = display.value;
     if (MemoryNewNumber && MemeoryPendingOperation !== '=') {
@@ -77,8 +75,6 @@ function operation(op) {
     MemeoryPendingOperation = op;
     }
 };
-
-
 function clear(id) { 
     if (id === 'ce') {
         display.value = '0';
@@ -104,16 +100,52 @@ function decimal(arg) {
     };
     display.value = localDecimalMemory;
 };
-function howItWorks() {
-    for (var i = 0; i < operations.length; i++) {
-        var newLi = document.createElement('li');
-        var operationText = operations[i].value;
+function howItWorks(val) {
+    var newLi = document.createElement('li');
+        var operationText = val;
         newLi.innerText = operationText;
         operationsList.appendChild(newLi);
+};
+function viewHowItWorks () {
+    if (document.getElementById('viewOperationList').style.display === "none") {
+        viewOperationList.style.display = "block";
+    }
+    else {
+        viewOperationList.style.display = "none";
     };
 };
 
 
+
+
+
+
+// function howItWorks() {
+//     for (var i = 0; i < operations.length; i++) {
+//         var newLi = document.createElement('li');
+//         var operationText = operations[i].value;
+//         newLi.innerText = operationText;
+//         operationsList.appendChild(newLi);
+//     };
+// };
+// function howItWorks(val) {
+//     var newLi = document.createElement('li');
+//         var operationText = operations.value;
+//         newLi.innerText = operationText;
+//         operationsList.appendChild(newLi);
+// }
+
+
+
+// Old How it works
+// function howItWorks() {
+//     for (var i = 0; i < operations.length; i++) {
+//         var newLi = document.createElement('li');
+//         var operationText = operations[i].value;
+//         newLi.innerText = operationText;
+//         operationsList.appendChild(newLi);
+//     };
+// };
 
 
 
