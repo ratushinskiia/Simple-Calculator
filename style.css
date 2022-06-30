@@ -4,16 +4,14 @@
     padding: 0;
 }
 @font-face {
-    font-family: digital-7;
-    src: url('./fonts/digital-7.ttf');
+    font-family: 'technology';
+    src: url(./fonts/technology.regular.ttf);
     font-style: normal;
     font-weight: normal;
 }
-
 body {
-    background: black url(./img/background-low-size.jpg) no-repeat ;
+    background: black url(./img/background-low-size.jpg) fixed no-repeat;
     background-size: cover;
-    background-position: center center;
 }
 .main {
     display: flex;
@@ -41,7 +39,7 @@ body {
     border-radius: 15px;
 }
 .calc_display-input {    
-    font-family: digital-7;
+    font-family: 'technology', Arial;
     font-size: 60px;
     margin: auto;
     padding-right: 4px;
@@ -184,7 +182,7 @@ ul.oper-list {
         padding-top: 30px;
     }
     .calc__display{
-        margin: 0 15px 0;
+        margin: auto 15px;
     }
     .calc__buttons {
         margin: 60px 15px 0;
