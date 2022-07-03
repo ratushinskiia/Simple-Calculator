@@ -5,13 +5,14 @@
 }
 @font-face {
     font-family: 'technology';
-    src: url(./fonts/technology.regular.ttf);
+    src: url(./fonts/Calculator.ttf);
     font-style: normal;
     font-weight: normal;
 }
 body {
-    background: black url(./img/background-low-size.jpg) fixed no-repeat;
+    background: black url(./img/background-large.jpg) fixed no-repeat;
     background-size: cover;
+    background-position: center center;
 }
 .main {
     display: flex;
@@ -44,7 +45,7 @@ body {
     margin: auto;
     padding-right: 4px;
     height: 80px;
-    width: 100%;
+    width: 99%;
     text-align: end;
     background-color: black;
     outline: none;

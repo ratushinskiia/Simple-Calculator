@@ -33,6 +33,21 @@ for (var i = 0; i < clearBtns.length; i++) {
 };
 decimalBtn.addEventListener('click', decimal);
 howItWorksBtn.addEventListener('click', viewHowItWorks);
+
+document.onkeypress = function (event) {
+    if (event.key === '/' || event.key === '*' || event.key === '+' || event.key === '-'|| event.key === 'Enter') {
+        operation(event.key);
+    }
+    else if (event.key == ".") {
+        decimal();
+    }
+    else if (isNaN(event.key)) {        
+        event.key = '';
+    }
+    else {
+        numberPress(event.key);
+    }
+};
 function numberPress(number) {
     if (MemoryNewNumber) {
         display.value = number;
@@ -49,12 +64,13 @@ function numberPress(number) {
 };
 function operation(op) {
     var localOperationMemory = display.value;
-    if (MemoryNewNumber && MemeoryPendingOperation !== '=') {
-        display.value = MemoryCurrentNumber;
+    if (MemoryNewNumber && MemeoryPendingOperation !== '=' && MemeoryPendingOperation !== 'Enter') {   
+        display.value = MemoryCurrentNumber; // enables after press operator afrer operator, but not '=': +, - etc.
+        MemeoryPendingOperation = op;
     }   else {
         MemoryNewNumber = true;
         if (MemeoryPendingOperation === '+') {
-            MemoryCurrentNumber = (MemoryCurrentNumber*10 + parseFloat(localOperationMemory)*10)/10;
+            MemoryCurrentNumber += parseFloat(localOperationMemory);
         }
         else if (MemeoryPendingOperation === '-')
         {
@@ -71,8 +87,8 @@ function operation(op) {
         else {
             MemoryCurrentNumber = parseFloat(localOperationMemory);
         };
-    display.value = MemoryCurrentNumber;
-    MemeoryPendingOperation = op;
+        display.value = parseFloat(MemoryCurrentNumber.toFixed(12)); 
+        MemeoryPendingOperation = op;
     }
 };
 function clear(id) { 
@@ -115,59 +131,3 @@ function viewHowItWorks () {
     };
 };
 
-
-
-
-
-
-// function howItWorks() {
-//     for (var i = 0; i < operations.length; i++) {
-//         var newLi = document.createElement('li');
-//         var operationText = operations[i].value;
-//         newLi.innerText = operationText;
-//         operationsList.appendChild(newLi);
-//     };
-// };
-// function howItWorks(val) {
-//     var newLi = document.createElement('li');
-//         var operationText = operations.value;
-//         newLi.innerText = operationText;
-//         operationsList.appendChild(newLi);
-// }
-
-
-
-// Old How it works
-// function howItWorks() {
-//     for (var i = 0; i < operations.length; i++) {
-//         var newLi = document.createElement('li');
-//         var operationText = operations[i].value;
-//         newLi.innerText = operationText;
-//         operationsList.appendChild(newLi);
-//     };
-// };
-
-
-
-
-
-
-
-
-// Old Code
-
-// var btns = document.querySelectorAll(".calc-button");
-// console.log(btns)
-// var display = document.getElementById('display');
-
-// var handleClick = function(e) {
-//     var value = e.target.textContent;
-//     display.value = value;
-// }
-
-// for (var i=0; i < btns.length; i++) {
-//     var btn = btns[i];
-
-//     btn.addEventListener("click", handleClick);
-// };
-// console.log(btn);
