@@ -1,5 +1,7 @@
 # Simple Calculator
-This is Educational project from LoftBlog. See here: [Youtube](https://www.youtube.com/watch?v=VHGaBc9OcXU&t=3869s)
+This is Educational project from LoftBlog. Lesson is here: [Youtube](https://www.youtube.com/watch?v=VHGaBc9OcXU&t=3869s).
+
+You can see how I did it here: https://ratushinskiia.github.io/Simple-Calculator/
 ___
 My improvments: 
 * My layout.
