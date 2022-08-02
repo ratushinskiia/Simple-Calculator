@@ -7,7 +7,7 @@ var numbers = document.querySelectorAll('.number'),
     display = document.getElementById('display'),
     MemoryCurrentNumber = 0,
     MemoryNewNumber = false,
-    MemeoryPendingOperation = '',
+    MemoryPendingOperation = '',
     operationsList = document.getElementById('operationsList');
 
 
@@ -19,7 +19,7 @@ for (var i = 0; i < numbers.length; i++) {
 };
 for (var i = 0; i < operations.length; i++) {
     var operationBtn = operations[i];
-    howItWorks(operations[i].value);
+    howItWorks(operations[i].dataset.description);
     operationBtn.addEventListener('click', function(e){
         operation(e.target.textContent);
     });
@@ -34,7 +34,7 @@ for (var i = 0; i < clearBtns.length; i++) {
 decimalBtn.addEventListener('click', decimal);
 howItWorksBtn.addEventListener('click', viewHowItWorks);
 
-document.onkeypress = function (event) {
+document.onkeydown = function (event) {
     if (event.key === '/' || event.key === '*' || event.key === '+' || event.key === '-'|| event.key === 'Enter') {
         operation(event.key);
     }
@@ -42,6 +42,9 @@ document.onkeypress = function (event) {
         decimal();
     }
     else if (isNaN(event.key)) {        
+        event.key = '';
+    }
+    else if (event.key === ' ') {        
         event.key = '';
     }
     else {
@@ -64,31 +67,31 @@ function numberPress(number) {
 };
 function operation(op) {
     var localOperationMemory = display.value;
-    if (MemoryNewNumber && MemeoryPendingOperation !== '=' && MemeoryPendingOperation !== 'Enter') {   
+    if (MemoryNewNumber && MemoryPendingOperation !== '=' && MemoryPendingOperation !== 'Enter') {   
         display.value = MemoryCurrentNumber; // enables after press operator afrer operator, but not '=': +, - etc.
-        MemeoryPendingOperation = op;
+        MemoryPendingOperation = op;
     }   else {
         MemoryNewNumber = true;
-        if (MemeoryPendingOperation === '+') {
+        if (MemoryPendingOperation === '+') {
             MemoryCurrentNumber += parseFloat(localOperationMemory);
         }
-        else if (MemeoryPendingOperation === '-')
+        else if (MemoryPendingOperation === '-')
         {
             MemoryCurrentNumber -= parseFloat(localOperationMemory);
         }
-        else if (MemeoryPendingOperation === '*')
+        else if (MemoryPendingOperation === '*')
         {
             MemoryCurrentNumber *= parseFloat(localOperationMemory);
         }
-        else if(MemeoryPendingOperation === '/')
+        else if(MemoryPendingOperation === '/')
         {
             MemoryCurrentNumber /= parseFloat(localOperationMemory);
         }
         else {
             MemoryCurrentNumber = parseFloat(localOperationMemory);
         };
-        display.value = parseFloat(MemoryCurrentNumber.toFixed(12)); 
-        MemeoryPendingOperation = op;
+        display.value = parseFloat(MemoryCurrentNumber.toFixed(12)); //MemoryCurrentNumber.toFixed(12)
+        MemoryPendingOperation = op;
     }
 };
 function clear(id) { 
@@ -101,7 +104,7 @@ function clear(id) {
         display.value = '0';
         MemoryNewNumber = true;
         MemoryCurrentNumber = '0';
-        MemeoryPendingOperation = '';
+        MemoryPendingOperation = '';
     }
 };
 function decimal(arg) {
@@ -130,4 +133,3 @@ function viewHowItWorks () {
         viewOperationList.style.display = "none";
     };
 };
-
